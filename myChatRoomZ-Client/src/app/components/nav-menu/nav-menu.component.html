@@ -1,0 +1,38 @@
+<header>
+  <nav
+    class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3"
+  >
+    <div class="container">
+      <a class="navbar-brand" [routerLink]="['/']"><img src="../../../assets/chat-logo.png" />myChatRoomZ</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target=".navbar-collapse"
+        aria-label="Toggle navigation"
+        [attr.aria-expanded]="isExpanded"
+        (click)="toggle()"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div
+        class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse"
+        [ngClass]="{ show: isExpanded }"
+      >
+        <ul class="navbar-nav flex-grow">
+          <li class="nav-item"
+              [routerLinkActive]="['link-active']"
+              [routerLinkActiveOptions]="{ exact: true }">
+            <a class="nav-link text-dark" [routerLink]="['/']">Home</a>
+          </li>
+          <li *ngIf="!log_service.loggedIn" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a class="nav-link text-dark" [routerLink]="['/login']"><i class="fa fa-sign-in"></i>Login</a></li>
+          <li *ngIf="log_service.loggedIn"><button (click)="logOut()">Logout</button>
+          <li *ngIf="log_service.loggedIn" class="nav-link"><a href="#"><i class="fa fa-user-o"></i> Logged as {{log_service.username}}</a></li>
+          <li class="nav-item" [routerLinkActive]="['link-active']">
+            <a class="nav-link text-dark" [routerLink]="['/']">About</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

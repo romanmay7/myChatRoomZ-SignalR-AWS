@@ -1,0 +1,80 @@
+[
+	{
+
+		"Title": "Sport Club",
+		"Description": "Intended for Sport Lovers",
+		"MessageHistory": [
+			{
+
+				"SenderName": "John Doe Junior",
+				"Text": "Hi there!",
+				"SentAt": "27 DEC 2018, 5:25PM"
+			},
+			{
+
+				"SenderName": "Samantha Vice",
+				"Text": "Hi John,how are you?!",
+				"SentAt": "27 DEC 2018, 5:26:07PM"
+			},
+			{
+
+				"SenderName": "Rookie57",
+				"Text": "Are you going to the Gym guys?!",
+				"SentAt": "27 DEC 2018, 5:26:21PM"
+			},
+			{
+
+				"SenderName": "John Doe Junior",
+				"Text": "Meet you there",
+				"SentAt": "27 DEC 2018, 5:26:37 PM"
+			}
+		]
+	},
+	{
+		"Title": "Nature Lovers",
+		"Description": "Dedicated to all  Nature Lovers",
+		"MessageHistory": []
+	},
+	{
+		"Title": "Videogames",
+		"Description": "Dedicated to all Gamers,Game Developers and Artists",
+		"MessageHistory": []
+	},
+	{
+		"Title": "Soccer",
+		"Description": "Soccer,Football",
+		"MessageHistory": []
+	},
+	{
+		"Title": "Rock Music",
+		"Description": "Classic Rock,Hard Rock,Punck Rock,Alternative Rock,Industrial Rock,Metall,Rock'n Roll",
+		"MessageHistory": []
+	},
+	{
+		"Title": "College",
+		"Description": "Learn Everything",
+		"MessageHistory": []
+	},
+	{
+		"Title": "Arts & Design",
+		"Description": "Create and Share",
+		"MessageHistory": []
+	},
+	{
+		"Title": "Computer Science and IT",
+		"Description": "Knowledge Sharing",
+		"MessageHistory": []
+	},
+	{
+		"Title": "Travel",
+		"Description": "Share your Travel Experience and Photos",
+		"MessageHistory": []
+	},
+	{
+		"Title": "TCNP21",
+		"Description": "Full Stack Dot NET Development Course",
+		"MessageHistory": []
+	}
+
+
+]

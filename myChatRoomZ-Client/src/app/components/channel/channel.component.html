@@ -1,0 +1,77 @@
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-12 col-lg-2">
+      <b>Available Channels:</b>
+      <hr />
+      <div *ngFor="let channel of channelService.channels">
+        <a [routerLink]="['/channel',{id:channel.id}]">{{channel.title}}</a>
+      </div>
+    </div>
+
+    <div class="col-12 col-lg-8">
+      <h2>
+        Channel:
+        <b>{{current_channel.title}}</b>
+      </h2>
+      <hr class="message-inner-separator" />
+
+      <form id="chatForm" (ngSubmit)="onSubmit()" [formGroup]="chatForm">
+        <div class="row">
+          <textarea id="submit" name="submit" type="text" height="auto" rows="3" cols="70" formControlName="msgText" placeholder="Type a message"></textarea>
+          <div class="columns">
+            <button type="submit" class="btn btn-success" style="margin:3px;">Send</button>
+            <button type="button" class="btn btn-warning" style="margin:3px;" (click)="file.click()">Attach Image</button>
+            <input type="file" #file placeholder="Choose file" (change)="uploadService.uploadFile(file.files)" style="display:none;">
+          </div>
+        </div>
+        <div class="row">
+          <span class="upload" *ngIf="uploadService.upload_progress > 0">
+            {{uploadService.upload_progress}}%
+          </span>
+          <span class="upload" *ngIf="(uploadService.upload_message)&&(uploadService.upload_message!='')">
+            {{uploadService.upload_message}}
+          </span>
+        </div>
+      </form>
+
+      <div [@message_history]="'in'" *ngFor="let message of message_history.slice().reverse();" [ngClass]="{'sms':message.text!='Leaving the Channel','sms2':message.text=='Leaving the Channel','sms3':message.text=='Joining the Channel'}">
+        <button *ngIf="(message.text!='Leaving the Channel')&&(message.text!='Joining the Channel')" class="close" (click)="onRemove(message)">
+          ×
+        </button>
+        <div *ngIf="(message.text!='Leaving the Channel')&&(message.text!='Joining the Channel')" class="rdir">
+          <strong><font color="blue">{{message.senderName}}</font></strong>
+          <font color="brown"> wrote on: {{message.sentAt | date:"medium"}}</font>
+        </div>
+        <div *ngIf="(message.text=='Leaving the Channel')||(message.text=='Joining the Channel')" class="rdir">
+          <strong><font color="blue">{{message.senderName}}</font> {{message.text}} </strong> <font color="gray">{{message.sentAt | date:"medium"}}</font>
+        </div>
+        <hr *ngIf="(message.text!='Leaving the Channel')&&(message.text!='Joining the Channel')" class="message-inner-separator" />
+        <hr />
+        <div *ngIf="(message.text!='Leaving the Channel')&&(message.text!='Joining the Channel')" class="mcontent">
+          <p>{{message.text}}</p>
+        </div>
+        <div *ngIf="(message.attachment!=null)&&(message.attachment!='')">
+          <img class="img_attachment" [src]="message.attachment"/>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-lg-2">
+      <b>People on this Channel:</b>
+      <hr />
+      <div *ngFor="let client of channelService.connected_clients[channel_id]">
+        <div>
+          <font color="orange">{{client}}</font>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+

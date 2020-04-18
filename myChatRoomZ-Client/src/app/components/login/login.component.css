@@ -1,0 +1,28 @@
+
+.login-input {
+  width: 100%;
+  border: 1px solid rgb(235, 235, 235);
+  padding: 17px 20px;
+  box-sizing: border-box;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.login-label {
+  width: 100%;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+
+.login-button {
+  width: 100%;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.cancel-button {
+  width: 100%;
+  font-size: 14px;
+  font-weight: 500;
+}

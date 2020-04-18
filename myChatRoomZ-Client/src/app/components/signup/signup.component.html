@@ -1,0 +1,81 @@
+
+<div>
+  <section class="signup">
+    <!-- <img src="images/signup-bg.jpg" alt=""> -->
+    <div class="container">
+      <div class="signup-content">
+        <div *ngIf="errorMessage" class="alert alert-warning">{{ errorMessage }}</div>
+        <form (ngSubmit)="onSignUp()" [formGroup]="registerForm" novalidate id="signup-form" class="signup-form">
+          <h2 class="form-title">Create Account</h2>
+
+          <div class="form-group">
+            <input type="text" formControlName="firstName" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" class="form-control form-input" name="fname" id="fname" placeholder="First Name" />
+            <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback form-input-error">
+              <div *ngIf="f.firstName.errors.required">First Name is required</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <input type="text" formControlName="lastName" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" class="form-control form-input" name="lname" id="lname" placeholder="Last Name" />
+            <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback form-input-error">
+              <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <input type="text" formControlName="userName" [ngClass]="{ 'is-invalid': submitted && f.userName.errors }" class="form-control form-input" name="uname" id="uname" placeholder="User Name" />
+            <div *ngIf="submitted && f.userName.errors" class="invalid-feedback form-input-error">
+              <div *ngIf="f.userName.errors.required">User Name is required</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <input type="email" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" class="form-control form-input" name="email" id="email" placeholder="Your Email" />
+            <div *ngIf="submitted && f.email.errors" class="invalid-feedback form-input-error">
+              <div *ngIf="f.email.errors.required">Email is required</div>
+              <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <input type="text" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" class="form-control form-input" name="password" id="password" placeholder="Password" />
+            <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
+            <div *ngIf="submitted && f.password.errors" class="invalid-feedback form-input-error">
+              <div *ngIf="f.password.errors.required">Password is required</div>
+              <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+              <label class="text-danger" *ngIf="f.password.hasError('hasNumber')">
+                Must have at least 1 number!
+              </label>
+              <label class="text-danger" *ngIf="f.password.hasError('hasCapitalCase')">
+                Must contain at least 1 in Capital Case!!
+              </label>
+              <label class="text-danger" *ngIf="f.password.hasError('hasSmallCase')">
+                Must contain at least 1 in Lower Case!!
+              </label>
+              <label class="text-danger" *ngIf="f.password.hasError('hasSpecialCharacters')">
+                Must contain at least 1  Special Character!!
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <input type="password" formControlName="confirmPassword" [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" class="form-control form-input" name="re_password" id="re_password" placeholder="Repeat your password" />
+            <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback form-input-error">
+              <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
+              <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <input type="submit" name="submit" id="submit" class="form-submit" value="Sign up" />
+          </div>
+        </form>
+        <<h4>
+          Already Have an Account ?
+          <a routerLink="/login" class="loginhere-link">Login here</a>
+        </h4>
+      </div>
+    </div>
+  </section>
+
+</div>

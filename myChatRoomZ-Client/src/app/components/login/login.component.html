@@ -1,0 +1,30 @@
+
+<div class="container">
+  <div class="col-md-4 col-md-offset-4 signup-content">
+    <div *ngIf="errorMessage" class="alert alert-warning">{{ errorMessage }}</div>
+    <form (submit)="onLogin()" #theForm="ngForm" novalidate class="login-form">
+      <div class="form-group">
+        <label class="login-label" for="username">Username</label>
+        <input type="text" class="form-control login-input" name="username" [(ngModel)]="creds.username" #username="ngModel" required />
+        <div class="text-danger login-label" *ngIf="username.touched && username.invalid && username.errors.required">Username is required</div>
+      </div>
+      <div class="form-group">
+        <label class="login-label" for="password">Password</label>
+        <input type="password" class="form-control login-input" name="password" [(ngModel)]="creds.password" #password="ngModel" required />
+        <div class="text-danger login-label" *ngIf="password.touched && password.invalid && password.errors.required">Password is required</div>
+      </div>
+      <div class="form-group">
+        <input type="submit" class="btn btn-success login-button" value="Login" [disabled]="theForm.invalid" />
+        <a routerLink="/index" class="btn btn-default cancel-button">Cancel</a>
+      </div>
+    </form>
+    
+    <p class="login-label">
+      Don't Already Have an Account ?
+      <a routerLink="/signup" class="loginhere-link">Sign Up here</a>
+    </p>
+    <hr />
+   Or Simply <button type="button" (click)="signInWithGoogle()" class="btn btn-danger"><i class="fa fa-google"></i> Login with Google</button>
+    
+  </div>
+</div>
